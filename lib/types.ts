@@ -1,0 +1,14 @@
+export type Team="red"|"blue"|null; export type CardType="red"|"blue"|"neutral"|"assassin";
+export type Player={id:string;nickname:string;team:Team;is_spymaster:boolean;is_host:boolean};
+export type Card={id:number;word:{hi:string;roman:string};revealed:boolean;type?:CardType};
+export type State={code:string;status:"lobby"|"playing"|"finished";host_player_id:string;active_team:"red"|"blue";clue:string|null;clue_number:number|null;guesses_left:number;winner:Team;players:Player[];cards:Card[]};
+export type Session={code:string;playerId:string;token:string};
+export type RoomRole="main_board"|"spymaster_1"|"spymaster_2";
+export type PublicCardState={id:number;word:{hi:string;roman:string};revealed:boolean};
+export type SpymasterCardState=PublicCardState&{type:CardType};
+export type RoleRoomState={role:RoomRole;code:string;word_pack:string;status:"lobby"|"playing"|"finished";active_team:"red"|"blue";clue:string|null;clue_number:number|null;guesses_left:number;winner:Team;cards:PublicCardState[]|SpymasterCardState[]};
+export type RoleStartGameInput={p_code:string;p_words:{hi:string;roman:string}[]};
+export type RoleSubmitClueInput={p_code:string;p_spymaster_token:string;p_clue:string;p_count:number};
+export type RoleGuessCardInput={p_code:string;p_card_id:number};
+export type RolePassTurnInput={p_code:string};
+export type RoleRematchInput=RoleStartGameInput;

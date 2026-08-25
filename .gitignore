@@ -1,0 +1,14 @@
+# Dependencies and generated files
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Local environment and logs
+.env
+.env.local
+.env.*.local
+!.env.example
+*.log
+
+# Archived source reference; the active app is at the repository root.
+sanket-hindi-game-mvp/
